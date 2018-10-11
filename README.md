@@ -17,7 +17,7 @@
 > Base URL : /api/auth
 
 Method | Route Address | Input | Output
---- | --- | --- | --- | ---
+--- | --- | --- | ---
 POST | /register | fullname, email, phone, password | Success/Error Message
 POST | /login | email/phone as id, password | Success/Error Message
 GET | /get-profile | token | Success/Error Message
