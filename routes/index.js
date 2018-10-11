@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({
-        "message": "hi"
-    });
-});
+const rand = require(__base + 'modules/misc/rand.js');
+
+/* Authority Protect */
+const protect = require(__base + 'modules/auth/protect.js');
+
+router.get('/', (req, res) => {res.json({"success": true, "msg": "API active."})});
+router.use('/auth', require(__base + 'modules/auth/routes.js'));
 
 module.exports = router;

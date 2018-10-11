@@ -1,3 +1,6 @@
+// This is cross origin config, in config you can put 'all' or 'list' 
+// all -> everyone
+// list -> selected IP Adresses defined in the config.domains.whitelist
 const config = require(__base+'system/config');
 
 module.exports = (req, res, next) => {

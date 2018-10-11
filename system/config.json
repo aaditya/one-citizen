@@ -1,61 +1,37 @@
 {
-    "settings": {
-      "server": {
-        "protocol": "https",
-        "host": "batman.appgroceries.com",
-        "balancer": false
-      },
-      "verification": {
-        "sms": false,
-        "email": true
-      },
-      "origin": {
-        "access": true,
-        "type": "all"
-      }
+  "settings": {
+    "server": {
+      "balancer": false
     },
-    "details": {
-      "mail": {
-        "host": "Yandex",
-        "user": "no-reply@appgroceries.com",
-        "pass": "auzx254sd"
-      },
-      "apis": {
-        "cric": "sSomjNJj2eWS7lHsfxk99H1vG0J3"
-      }
+    "verification": {
+      "sms": false,
+      "email": true
     },
-    "setup": {
-      "production": {
-        "sign": "fb>mN9*RtR)Sn!&",
-        "cryptoKey": "rDHP>7Hq8qfjRWn6kE^n1R7c2u_j4jFu",
-        "limiter": 0,
-        "database": "mongodb://admin:check123@ds125392.mlab.com:25392/batman_11",
-        "port": 8000,
-        "salt": 20
-      },
-      "development": {
-        "sign": "DHP>7Hq8qfjRWn6kE",
-        "cryptoKey": "@>y-L{_^U7wo?fb>mN9*RtR)Sn!&D_4J",
-        "limiter": 2,
-        "database": "mongodb://admin:check123@ds125392.mlab.com:25392/batman_11",
-        "port": 9000,
-        "salt": 10
-      },
-      "testing": {
-        "sign": "7e$7InG",
-        "cryptoKey": "0?fC{-@v7_2_{b&GR521?g*ZH56_9<8u",
-        "limiter": 1,
-        "database": "mongodb://admin:check123@ds125392.mlab.com:25392/batman_11",
-        "port": 9500,
-        "salt": 5
-      }
-    },
-    "domains": {
-      "whitelist": [
-        "http://127.0.0.1:8000",
-        "http://localhost:8000",
-        "http://127.0.0.1:9500",
-        "http://localhost:9500"
-      ]
+    "origin": {
+      "access": true,
+      "type": "all"
     }
+  },
+  "details": {
+    "mail": {
+      "host": "Yandex",
+      "user": "dummy@appgroceries.com",
+      "pass": "dummy123!"
+    }
+  },
+  "setup": {
+    "sign": "fb>mN9*RtR)Sn!&",
+    "cryptoKey": "rDHP>7Hq8qfjRWn6kE^n1R7c2u_j4jFu",
+    "limiter": 0,
+    "database": "mongodb://admin:admin123@ds125713.mlab.com:25713/one-citizen",
+    "port": 3000,
+    "salt": 10,
+    "callback": "http://localhost:3000"
+  },
+  "domains": {
+    "whitelist": [
+      "http://127.0.0.1:3000",
+      "http://localhost:3000"
+    ]
   }
+}
