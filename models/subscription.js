@@ -5,6 +5,10 @@ const subscription = new schema({
     name: String,
     description: String,
     discount: Number,
+    price: {
+        type:Number,
+        default:0
+    },
     subscribers: [mongoose.Schema.Types.ObjectId]
 });
 

@@ -9,7 +9,7 @@ exports.getOffers = (req, res) => {
             })
         }
         else {
-            let offers = doc.map((o) => ({id: o._id, name: o.name, description: o.description, discount: o.discount}));
+            let offers = doc.map((o) => ({id: o._id, name: o.name, description: o.description, discount: o.discount, price: o.price}));
             res.json({
                 success: true,
                 offers: offers
@@ -23,6 +23,7 @@ exports.addOffer = (req, res) => {
         name: req.body.name,
         description: req.body.description,
         discount: req.body.discount,
+        price: req.body.price
     });
     newSubscribe.save((err, doc) => {
         if (err) {

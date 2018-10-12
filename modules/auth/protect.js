@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const userModel = require(__base + 'models/user.js');
+const financialModel = require(__base + 'models/financial.js');
 
 const cryptor = require(__base + 'modules/misc/crypt.js');
 
@@ -39,18 +40,28 @@ const protect = (req, res, next) => {
 											msg: 'Failed to authenticate token.'
 										});
 									} else {
-										req.info = {
-											id: user.id,
-											name: user.fullname,
-											email: user.email,
-											phone: user.phone,
-											verified: true,
-											loyalty: {
-												card: user.loyalty.card,
-												points: user.loyalty.points
+										financialModel.findById(info.id).exec((err, fin) => {
+											if (err) {
+												res.json({
+													success: false,
+													msg: err.message
+												});
 											}
-										};
-										next();
+											else {
+												req.info = {
+													id: user.id,
+													name: user.fullname,
+													email: user.email,
+													phone: user.phone,
+													verified: true,
+													loyalty: {
+														card: fin.card,
+														points: fin.points
+													}
+												};
+												next();
+											}
+										});
 									}
 								}
 							});

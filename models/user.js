@@ -32,13 +32,6 @@ const user = new schema({
   code: {
     email: String,
   },
-  loyalty: {
-    card: Number,
-    points: {
-      type: Number,
-      default: 0
-    }
-  },
   status: {
     type: Number,
     default: 0

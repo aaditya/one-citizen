@@ -4,6 +4,7 @@ const moment = require('moment');
 
 const config = require(__base + 'system/config.json');
 const userModel = require(__base + 'models/user.js');
+const financialModel = require(__base + 'models/financial.js');
 
 // Email Sender Module
 const sendEmail = require(__base + 'modules/link/email.js');
@@ -67,9 +68,6 @@ const register = (req, res) => {
                   password: passHash,
                   code: {
                     email: code
-                  },
-                  loyalty: {
-                    card: lcn
                   }
                 });
                 User.save((err, data) => {
@@ -82,14 +80,29 @@ const register = (req, res) => {
                     /* Person verification */
                     if (config.settings.verification.email) {
                       // If emails are enabled in the configuration then send confirmation email.
-                      let subject = "One Citizen Email Vefirication";
+                      let subject = "One Citizen Vefirication";
                       let link = `${xe.cblink}/api/auth/verify/${data._id}/${code}`;
                       let message = "Thank you for registering. \n Please click on the following link to activate your account. \n " + link;
                       sendEmail(req.body.email, subject, message);
                     }
-                    res.json({
-                      success: true,
-                      msg: `Registration Successful. Your loyalty card number is ${lcn}.`
+                    let finance = new financialModel({
+                      _id: data._id,
+                      card: lcn,
+                      points: req.body.points
+                    });
+                    finance.save((err, fin) => {
+                      if (err) {
+                        res.json({
+                          success: false,
+                          msg: err.message
+                        });
+                      }
+                      else {
+                        res.json({
+                          success: true,
+                          msg: `Registration Successful.`
+                        });
+                      }
                     });
                   }
                 });
