@@ -79,7 +79,7 @@ Method | Route Address | Input | Output
 --- | --- | --- | ---
 POST | /add | name, description, price | Success/Error Message
 GET | /list | token | List of items
-POST | /add-review/:item_id | Params, token | Success/Error Message
+POST | /add-review/:item_id | Params, token, rating, image, content | Success/Error Message
 
 ### Cart Routes
 

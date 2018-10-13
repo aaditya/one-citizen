@@ -7,6 +7,7 @@ const items = new schema({
     price: Number,
     reviews: [{
         userid: mongoose.Schema.Types.ObjectId,
+        image: String,
         rating: Number,
         content: String
     }]

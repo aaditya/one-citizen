@@ -31,6 +31,7 @@ const writeReview = (req, res) => {
                             let review = {
                                 userid: req.info.id,
                                 rating: req.body.rating,
+                                image: req.file.filename,
                                 content: req.body.content
                             }
                             itemModel.findOneAndUpdate(

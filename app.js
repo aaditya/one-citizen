@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const helmet = require("helmet");
-const compress = require("compression");
-const morgan = require("morgan");
+const helmet = require('helmet');
+const compress = require('compression');
+const morgan = require('morgan');
 
 /* We set this variable to ease off the require file process */
 global.__base = __dirname + '/';
@@ -17,9 +17,9 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
 // Now we set up basic security headers for express.
-// app.use(compress());
-// app.use(helmet());
-// app.enable('trust proxy');
+app.use(compress());
+app.use(helmet());
+app.enable('trust proxy');
 app.use(morgan('dev'));
 
 /* Cross-Origin Access */
