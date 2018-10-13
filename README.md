@@ -12,6 +12,15 @@
 
 ## Routes
 
+### Index Route
+
+> Base URL : /
+
+Method | Route Address | Input | Output
+--- | --- | --- | ---
+GET | / | None | API Information
+
+
 ### Authentication Routes
 
 > Base URL : /api/auth
@@ -46,6 +55,8 @@ GET | /history | token | Point Balance and Transaction History
 
 ### Reward Routes
 
+> Base URL : /api/bonus
+
 Method | Route Address | Input | Output
 --- | --- | --- | ---
 GET | /rewards | token | List of Rewards
@@ -53,3 +64,13 @@ GET | /buy-reward/:rew_id | Params | Success/Error Message
 GET | /my-rewards | token | My Rewards
 POST | /earn-points | token. points | Success/Error Message
 POST | /add-reward | token, name, description, price | Success/Error Message
+
+### Cart Routes
+
+> Base URL : /api/cart
+
+Method | Route Address | Input | Output
+--- | --- | --- | ---
+POST | /add
+PATCH | /update
+DELETE | /delete

@@ -21,7 +21,6 @@ const transact = (details, next) => {
                 if (details.type == 'debit') {
                     if (fin.points >= details.item.amount) {
                         let difference = parseInt(fin.points) - parseInt(details.item.amount);
-                        console.log(1, difference)
                         let trans = {
                             description: details.item.description,
                             amount: details.item.amount,
