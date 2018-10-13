@@ -7,7 +7,8 @@ const rewards = new schema({
     price: {
         type:Number,
         default:0
-    }
+    },
+    redeemers: [mongoose.Schema.Types.ObjectId]
 });
 
 module.exports = mongoose.model('rewards', rewards);
