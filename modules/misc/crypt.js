@@ -6,7 +6,6 @@ exports.encrypt = (text) => {
     let encrypted = cipher.update(text, 'utf8', 'hex')
     encrypted += cipher.final('hex');
     let tag = cipher.getAuthTag();
-    console.log(xe.ckey)
     return tag.toString('hex') + encrypted;
 }
 

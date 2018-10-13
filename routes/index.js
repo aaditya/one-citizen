@@ -13,5 +13,6 @@ router.use('/subscribe', protect, require(__base + 'modules/sub/routes.js'));
 router.use('/transactions', protect, require(__base + 'modules/trans/routes.js'));
 router.use('/bonus', protect, require(__base + 'modules/bonus/routes.js'));
 router.use('/item', protect, require(__base + 'modules/items/routes.js'));
+router.use('/cart', protect, require(__base + 'modules/cart/routes.js'));
 
 module.exports = router;

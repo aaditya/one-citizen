@@ -1,12 +1,18 @@
 # One-Citizen
 
+> This is the project required for the capgemini techchallenge Round 2 of Full Stack development. Problem Statement on their site.
+
 ## Requirements
 
-> Node (v4 or above).
+> Node (v6 or above)
+
+> NPM (v4 or above)
 
 ## Installation and Running
 
 > npm i
+
+> ng build
 
 > npm start
 
@@ -65,12 +71,23 @@ GET | /my-rewards | token | My Rewards
 POST | /earn-points | token. points | Success/Error Message
 POST | /add-reward | token, name, description, price | Success/Error Message
 
+### Item Routes
+
+> Base URL : /api/item
+
+Method | Route Address | Input | Output
+--- | --- | --- | ---
+POST | /add | name, description, price | Success/Error Message
+GET | /list | token | List of items
+POST | /add-review/:item_id | Params, token | Success/Error Message
+
 ### Cart Routes
 
 > Base URL : /api/cart
 
 Method | Route Address | Input | Output
 --- | --- | --- | ---
-POST | /add
-PATCH | /update
-DELETE | /delete
+GET | /view | token | List of Cart Items
+GET | /add/:item_id/:qty | Params, token | Success/Error Message
+PATCH | /update/:item_id/:qty | Params, token | Success/Error Message
+DELETE | /delete/:item_id | Params, token | Success/Error Message
