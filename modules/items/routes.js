@@ -3,7 +3,7 @@ const multer = require('multer');
 
 const router = express.Router();
 
-const uploads = multer({dest: 'uploads/'});
+const uploads = multer({dest: 'uploads/reviews/'});
 
 router.post('/add', require('./handler.js').addItem);
 router.get('/list', require('./handler.js').getItems);

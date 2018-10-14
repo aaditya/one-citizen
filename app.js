@@ -32,7 +32,8 @@ if (config.settings.origin.access) {
 app.use('/api', require(__base + 'routes/index.js'));
 
 /* Angular Application Root */
-app.use(express.static(__dirname + '/dist'));
+app.use('/', express.static(__dirname + '/dist'));
+app.use('/uploads', express.static(__dirname + "/uploads"));
 app.use((req, res) => {
   res.sendFile(__dirname + '/dist/index.html')
 });

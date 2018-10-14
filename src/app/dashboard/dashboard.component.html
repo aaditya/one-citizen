@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand">Gridnet</a>
+  <ul class="nav">
+    <li class="nav-item">
+      <button type="button" (click)="logout()" class="btn btn-secondary">Logout</button>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav text-left" style="position: fixed; left: 0;height: calc(100vh - 56px)">
+      <p>
+        <button routerLink="/home/transactions" class="btn btn-block btn-primary">
+          <i class="fa fa-newspaper-o"></i> Transaction History</button>
+        <button routerLink="/profile" class="btn btn-block btn-primary">
+          <i class="fa fa-user"></i> Profile</button>
+      </p>
+    </div>
+    <div class="col-sm-6 offset-sm-2 text-left" style="height: calc(100vh - 56px); overflow-y: auto;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

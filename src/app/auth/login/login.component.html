@@ -1,0 +1,12 @@
+<div class="grad"></div>
+<div class="login-page">
+  <div class="form">
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="logUser()">
+      <input formControlName="username" type="text" placeholder="Email/Phone"/>
+      <input formControlName="password" type="password" placeholder="Password"/>
+      <button [disabled]="!loginForm.valid">login</button>
+      <p class="message">Not registered? <a routerLink="/auth/register">Create an account</a></p>
+      <p class="message"><a routerLink="/">Go Home</a></p>
+    </form>
+  </div>
+</div>

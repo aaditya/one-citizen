@@ -1,0 +1,17 @@
+<div class="grad"></div>
+<div class="login-page">
+  <div class="form">
+    <form [formGroup]="registerForm" (ngSubmit)="submitUser()" class="register-form">
+      <input formControlName="name" type="text" placeholder="Your Name" />
+      <input formControlName="email" type="text" [email]="true" placeholder="Email Address" />
+      <input formControlName="phone" type="text" pattern="\d*" maxlength="10" placeholder="Phone Number" />
+      <input formControlName="password" type="password" placeholder="Enter Password" />
+      <input formControlName="passwordConfirm" type="password" placeholder="Confirm Password" />
+      <button [disabled]="!registerForm.valid">Register</button>
+      <p class="message">Already registered?
+        <a routerLink="/auth/login">Sign In</a>
+      </p>
+      <p class="message"><a routerLink="/">Go Home</a></p>
+    </form>
+  </div>
+</div>

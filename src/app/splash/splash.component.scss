@@ -1,0 +1,109 @@
+.blur-splash {
+    background: url('/uploads/primary-bg.jpg') no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+    position:fixed;
+    top: 0;
+    left: 0;
+}
+.splash {
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    color: #eee;
+}
+
+.splash-header {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100vw;
+    border-bottom: 1px solid #eee;
+    background: rgba(70,70,70,0.6);
+}
+
+.sh-text {
+    display:block;
+    width:100px;
+    height:100%;
+    line-height: 60px;
+    text-decoration: none;
+    color: #eee;
+    text-align: center;
+    float: right;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.splash-footer {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 100vw;
+    border-top: 1px solid #eee;
+    background: rgba(70,70,70,0.6);
+}
+
+.sf-text {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper {
+    display: block;
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    top: 25vh;
+    left: 24vw;
+}
+
+.wrap-head {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    line-height: 60px;
+    font-size: 48px;
+    margin-top: 10%;
+}
+
+.enroll {
+    border: 1px solid #eee;
+    background: rgba(70,70,70,0.3);
+    height: 60px;
+    font-size: 24px;
+    width: 170px;
+    display: block;
+    color: #eee;
+    margin: 7% auto;
+    border-radius: 5px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.enroll:hover, .sh-text:hover {
+    background: rgba(50,50,50,0.6);
+    cursor: pointer;
+}
+
+.enroll:focus{
+    outline: none;
+}

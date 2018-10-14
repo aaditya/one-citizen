@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-/uploads
+/uploads/reviews
 
 # dependencies
 /node_modules
