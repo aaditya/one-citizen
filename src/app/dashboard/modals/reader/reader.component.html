@@ -1,0 +1,8 @@
+<div class="card" *ngFor="let r of data.reviews">
+  <div class="card-body">
+    <h5 class="card-title"><i class="fa fa-user"></i> Anonymous</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Rating {{ r.rating }}</h6>
+    <p class="card-text">{{ r.content }}</p>
+    <fb-like></fb-like>
+  </div>
+</div>

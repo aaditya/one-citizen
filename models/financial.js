@@ -6,7 +6,7 @@ const financial = new schema({
     card: Number,
     points: {
         type: Number,
-        default: 100
+        default: 10000
     },
     transactions: []
 });

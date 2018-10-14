@@ -28,10 +28,11 @@ const writeReview = (req, res) => {
                     }
                     else {
                         if (doc.success) {
+                            let file = req.file ? req.file.filename : undefined;
                             let review = {
                                 userid: req.info.id,
                                 rating: req.body.rating,
-                                image: req.file.filename,
+                                image: file,
                                 content: req.body.content
                             }
                             itemModel.findOneAndUpdate(

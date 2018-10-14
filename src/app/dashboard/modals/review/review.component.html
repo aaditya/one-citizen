@@ -1,0 +1,16 @@
+<h4>Review</h4>
+<form (ngSubmit)="writeRev()" [formGroup]="review">
+  <div class="form-group">
+    <label for="ratingControl">Rating</label>
+    <input type="number" formControlName="rating" pattern="[0-5]{1}" min="0" max="5" class="form-control" id="ratingControl" placeholder="0">
+  </div>
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea class="form-control" formControlName="content" id="content" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="fileHandler">File Input</label>
+    <input type="file" formControlName="image" class="form-control-file" id="fileHandler">
+  </div>
+  <input type="submit" [disabled]="!review.valid" class="btn btn-primary" value="Submit" />
+</form>

@@ -1,6 +1,0 @@
-<div *ngIf="isFriend else adder">
-  <button (click)="manageFriend('remove', params.id)" class="btn btn-danger btn-lg">Unfriend</button>
-</div>
-<ng-template #adder>
-  <button (click)="manageFriend('add', params.id)" class="btn btn-primary btn-lg">Add Friend</button>
-</ng-template>

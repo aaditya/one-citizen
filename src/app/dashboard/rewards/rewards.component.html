@@ -1,0 +1,11 @@
+<div *ngFor="let reward of rewards" class="card" style="margin: 5px; width: 18rem; display:inline-block;">
+  <div class="card-header">
+    Points: {{reward.price}}
+  </div>
+  <!-- {{item.id}} -->
+  <div class="card-body">
+    <h5 class="card-title">{{reward.name}}</h5>
+    <p class="card-text">{{reward.description}}</p>
+    <a (click)="redeemItem(reward.id)" class="btn btn-info text-white"><i class="fa fa-gift"></i> Redeem</a>
+  </div>
+</div>

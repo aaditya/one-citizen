@@ -21,24 +21,30 @@ export class RegisterComponent implements OnInit {
     private snackBar: MatSnackBar,
     private auth: AuthService,
     private title: TitleService
-  ) { 
+  ) {
     this.title.setTitle('One Citizen | Register');
   }
 
   submitUser() {
-    this.http.post('/api/auth/register', this.registerForm.value).subscribe(
-      (res:any) => {
-        if (res.success) {
-          this.snackBar.open('Please verify your email.', '', { duration: 10000 });
+    if (this.registerForm.value.password != this.registerForm.value.passwordConfirm) {
+      this.snackBar.open('Passwords do not match.', '', { duration: 10000 });
+    }
+    else {
+      this.http.post('/api/auth/register', this.registerForm.value).subscribe(
+        (res:any) => {
+          if (res.success) {
+            this.snackBar.open('Please verify your email.', '', { duration: 10000 });
+            this.router.navigate(['/auth/login']);
+          }
+          else {
+            this.snackBar.open(res.msg, '', { duration: 1000 });
+          }
+        },
+        err => {
+          this.snackBar.open(err.message, '', { duration: 1000 });
         }
-        else {
-          this.snackBar.open(res.msg, '', { duration: 1000 });
-        }
-      },
-      err => {
-        this.snackBar.open(err.message, '', { duration: 1000 });
-      }
-    );
+      );
+    }
   }
 
   ngOnInit() {
@@ -46,7 +52,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/home']);
     }
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
+      fullname: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
       password: ['', Validators.required],

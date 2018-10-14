@@ -2,7 +2,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { TitleService } from '../title.service';
 
@@ -11,12 +11,10 @@ import { TitleService } from '../title.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  feed: any;
-  requests: any;
-  newPost: FormGroup;
+export class DashboardComponent implements OnInit, AfterViewInit {
+  user: String = sessionStorage.name;
 
-  constructor(
+   constructor(
     private http: HttpClient,
     private router: Router,
     private snackBar: MatSnackBar,
@@ -28,7 +26,11 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.verifyAuth();
+    this.auth.verifyUser();
+  }
+
+  ngAfterViewInit() {
+    
   }
 
   logout() {

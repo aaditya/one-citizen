@@ -1,0 +1,14 @@
+<div *ngFor="let item of items" class="card" style="margin: 5px; width: 18rem; display:inline-block;">
+  <div class="card-header">
+    ₹ {{item.price}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.description}}</p>
+    <div class="btn-group">
+      <button (click)="addToCart(item.id)" class="btn btn-info text-white" title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
+      <button (click)="openReviews(item.reviews)" class="btn btn-secondary text-white" title="Read Reviews"><i class="fa fa-book"></i></button>
+      <button (click)="openDialog(item.id)" class="btn btn-dark text-white" title="Write a Review"><i class="fa fa-pencil"></i></button>
+    </div>
+  </div>
+</div>

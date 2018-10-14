@@ -1,0 +1,26 @@
+<div *ngFor="let item of cart" class="card" style="margin-top: 5px;">
+  <div class="card-header">
+    ₹ {{item.price}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.description}}</p>
+
+    <div class="input-group btn-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fa fa-balance-scale"></i></span>
+      </div>
+      <input type="number" [(ngModel)]="item.qty" class="form-control" style="width:10vw;" placeholder="Quantity"
+        aria-describedby="basic-addon1">
+      <a (click)="updateQty(item.id, item.qty)" class="btn btn-warning text-white"><i class="fa fa-pencil"></i> Update
+        Item</a>
+      <a (click)="deleteItem(item.id)" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Remove from Cart</a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="cart?.length == 0" class="card" style="margin-top: 5px;">
+  <div class="card-body">
+    Your cart is empty.
+  </div>
+</div>

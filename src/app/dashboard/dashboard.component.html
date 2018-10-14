@@ -1,8 +1,13 @@
 <nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand">Gridnet</a>
+  <a routerLink="/home" class="navbar-brand">One Citizen</a>
   <ul class="nav">
     <li class="nav-item">
-      <button type="button" (click)="logout()" class="btn btn-secondary">Logout</button>
+      <div class="btn-group btn-group-sm" role="group" aria-label="...">
+        <button type="button" routerLink="/home/profile" class="btn btn-info"><i class="fa fa-user"></i> {{user}}</button>
+        <button type="button" routerLink="/home/cart" class="btn btn-secondary"><i class="fa fa-shopping-cart"></i> Cart
+        </button>
+        <button type="button" (click)="logout()" class="btn btn-secondary"><i class="fa fa-sign-out"></i></button>
+      </div>
     </li>
   </ul>
 </nav>
@@ -11,13 +16,17 @@
   <div class="row content">
     <div class="col-sm-2 sidenav text-left" style="position: fixed; left: 0;height: calc(100vh - 56px)">
       <p>
-        <button routerLink="/home/transactions" class="btn btn-block btn-primary">
-          <i class="fa fa-newspaper-o"></i> Transaction History</button>
-        <button routerLink="/profile" class="btn btn-block btn-primary">
-          <i class="fa fa-user"></i> Profile</button>
+          <button routerLink="/home/subscriptions" class="btn btn-block btn-info text-left"><i class="fa fa-rss"></i>
+            Subscriptions</button>
+        <button routerLink="/home/transactions" class="btn btn-block btn-info text-left"><i class="fa fa-credit-card"></i>
+          Transaction History</button>
+        <button routerLink="/home/rewards" class="btn btn-block btn-info text-left"><i class="fa fa-gift"></i>
+          Rewards</button>
+        <button routerLink="/home/store" class="btn btn-block btn-info text-left"><i class="fa fa-shopping-bag"></i>
+          Store</button>
       </p>
     </div>
-    <div class="col-sm-6 offset-sm-2 text-left" style="height: calc(100vh - 56px); overflow-y: auto;">
+    <div class="col-sm-10 offset-sm-2 text-left" style="height: calc(100vh - 56px); overflow-y: auto;">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -30,8 +30,10 @@ export class LoginComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           sessionStorage.token = res.token;
-          this.auth.isLogged = true;
-          this.router.navigate(['/home']);
+          this.auth.getProfile(() => {
+            this.router.navigate(['/home']);
+            this.auth.isLogged = true;
+          });
         }
         else {
           this.snackBar.open(res.msg, '', { duration: 1000 });

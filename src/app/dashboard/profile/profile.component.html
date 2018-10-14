@@ -1,0 +1,30 @@
+<h3>Your Profile</h3>
+<div class="card">
+  <h5 class="card-header">{{ info.name }}</h5>
+  <div class="card-body">
+    <p class="card-text">
+      ID: {{ info.id }} <br>
+      Email Address: {{ info.email }} <br>
+      Phone: {{ info.phone }} <br>
+      Loyalty Card Number: {{ info.loyalty.card }} <br>
+      Points Balance: {{ info.loyalty.points }}
+    </p>
+  </div>
+</div>
+<hr>
+<h3>Your Subscriptions</h3>
+<ul class="list-group">
+  <li *ngFor="let sub of subs" class="list-group-item">{{sub.discount}}% off on {{sub.name}}. 
+    <button (click)="unsub(sub.id)" type="button"
+      class="btn btn-danger float-right"><i class="fa fa-rss"></i> Unsubscribe</button></li>
+</ul>
+<hr>
+<h3>Your Rewards</h3>
+<div *ngFor="let rew of rews" class="card" style="margin: 5px; width: 18rem; display:inline-block;">
+  <div class="card-header">
+    {{rew.name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{rew.description}}</h5>
+  </div>
+</div>

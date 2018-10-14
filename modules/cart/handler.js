@@ -50,7 +50,7 @@ exports.add = (req, res) => {
                                     {
                                         $push: {
                                             "items": {
-                                                id: req.params.item_id,
+                                                itemId: req.params.item_id,
                                                 qty: req.params.qty || 1
                                             }
                                         }
@@ -98,7 +98,7 @@ exports.delete = (req, res) => {
                         {
                             $pull: {
                                 "items": {
-                                    id: req.params.item_id
+                                    itemId: req.params.item_id
                                 }
                             }
                         }, (err, doc) => {
@@ -173,24 +173,43 @@ exports.list = (req, res) => {
             });
         }
         else {
-            let itemIds = doc.items.map((i) => {
-                return i.itemId;
-            });
-            itemsModel.find({ _id: { $in: itemIds  } }).exec((err, cart) => {
-                if (err) {
-                    res.json({
-                        success: false,
-                        msg: err.message
-                    });
-                }
-                else {
-                    let items = cart.map((o) => ({ id: o._id, name: o.name, description: o.description, price: o.price }));
-                    res.json({
-                        success: true,
-                        cart: items
-                    });
-                }
-            });
+            if (doc) {
+                let family = {};
+                let itemIds = doc.items.map((i) => {
+                    return i.itemId;
+                });
+                // Here, we map each id to their qty and then we will extract from this later.
+                doc.items.forEach((item) => {
+                    family[item.itemId] = item.qty;
+                })
+                itemsModel.find({ _id: { $in: itemIds } }).exec((err, cart) => {
+                    if (err) {
+                        res.json({
+                            success: false,
+                            msg: err.message
+                        });
+                    }
+                    else {
+                        let items = cart.map((o) => ({
+                            id: o._id,
+                            name: o.name,
+                            description: o.description,
+                            price: o.price,
+                            qty: family[o._id]
+                        }));
+                        res.json({
+                            success: true,
+                            cart: items
+                        });
+                    }
+                });
+            }
+            else {
+                res.json({
+                    success: true,
+                    cart: []
+                });
+            }
         }
     });
 }

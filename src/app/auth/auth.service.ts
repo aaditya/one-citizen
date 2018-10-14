@@ -16,11 +16,12 @@ export class AuthService {
     private snackBar: MatSnackBar,
   ) { }
 
-  verifyAuth() {
+  getProfile(next) {
     this.http.get('/api/auth/get-profile', { headers: { "x-access-token": sessionStorage.token } }).subscribe(
       (res: any) => {
         if (res.success) {
-          sessionStorage.info = JSON.stringify(res.info);
+          sessionStorage.name = res.info.name;
+          next();
         }
         else {
           sessionStorage.clear();
@@ -62,6 +63,25 @@ export class AuthService {
       },
       err => {
         this.snackBar.open(err.message, '', { duration: 1000 });
+      }
+    );
+  }
+
+  verifyUser() {
+    this.http.get('/api/auth/get-profile', { headers: { "x-access-token": sessionStorage.token } }).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.isLogged = true;
+          return true;
+        }
+        else {
+          sessionStorage.clear();
+          this.router.navigate(['/']);
+        }
+      },
+      err => {
+        sessionStorage.clear();
+        this.router.navigate(['/']);
       }
     );
   }

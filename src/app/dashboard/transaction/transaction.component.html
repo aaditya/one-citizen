@@ -1,3 +1,9 @@
-<p>
-  transaction works!
-</p>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-info">Your card number: {{cardNum}} <span style="float:right">Point balance: {{points}}</span></li>
+  <li *ngFor="let t of transactions" class="list-group-item">
+    <span>{{t.date | date}} </span>
+    <span class="text-success" *ngIf="t.type == 'credit'">+{{t.amount}}</span>
+    <span class="text-danger" *ngIf="t.type == 'debit'">-{{t.amount}}</span>
+    <span> {{t.description}}</span>
+  </li>
+</ul>

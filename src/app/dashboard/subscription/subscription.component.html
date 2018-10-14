@@ -1,0 +1,10 @@
+<div *ngFor="let offer of offers" style="margin: 5px 0px;" class="card">
+  <div class="card-header">
+    Subscribe for {{offer.price}} points !
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{offer.discount}}% off on {{offer.name}}!</h5>
+    <p class="card-text">{{offer.description}}</p>
+    <a (click)="subscribe(offer.id)" class="btn btn-primary text-white"><i class="fa fa-rss"></i> Subscribe</a>
+  </div>
+</div>
