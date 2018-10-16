@@ -26,7 +26,7 @@
     "database": "mongodb://admin:admin123@ds125713.mlab.com:25713/one-citizen",
     "port": 3000,
     "salt": 10,
-    "callback": "http://localhost:3000"
+    "callback": "https://onecitizen.metaxyt.cf"
   },
   "domains": {
     "whitelist": [
