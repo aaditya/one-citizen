@@ -80,7 +80,7 @@ const register = (req, res) => {
                     /* Person verification */
                     if (config.settings.verification.email) {
                       // If emails are enabled in the configuration then send confirmation email.
-                      let subject = "One Citizen Vefirication";
+                      let subject = "One Citizen Verification";
                       let link = `${xe.cblink}/auth/verify/${data._id}/${code}`;
                       let message = "Thank you for registering. \n Please click on the following link to activate your account. \n " + link;
                       sendEmail(req.body.email, subject, message);
